@@ -1,0 +1,725 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #e0e0e0;
+  background: #100c3e;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.navbar a {
+  color: #00f0ff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.navbar a:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  color: #00f0ff;
+  font-size: 1.8rem;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(10, 10, 35, 0.7), rgba(10, 10, 35, 0.7)),
+    url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")
+      no-repeat center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+  animation: neonGlow 2s ease-in-out infinite alternate;
+}
+
+.hero p {
+  font-size: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background: linear-gradient(45deg, #00f0ff, #ff00ff);
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+}
+
+.section {
+  padding: 5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  color: #00f0ff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+.upcoming-concerts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.concert-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.concert-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  border: 2px solid #00f0ff;
+}
+
+.concert-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #00f0ff, #ff00ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.concert-image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.3"/><circle cx="80" cy="30" r="1.5" fill="white" opacity="0.4"/><circle cx="40" cy="70" r="1" fill="white" opacity="0.5"/><circle cx="90" cy="80" r="2.5" fill="white" opacity="0.3"/></svg>');
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.concert-info {
+  padding: 1.5rem;
+}
+
+.concert-title {
+  font-size: 1.5rem;
+  color: #00f0ff;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.concert-date {
+  color: #ff00ff;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.concert-location {
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.concert-bands {
+  margin-bottom: 1rem;
+}
+
+.concert-bands h4 {
+  color: #00f0ff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.band-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.band-tag {
+  background: rgba(0, 240, 255, 0.2);
+  color: #00f0ff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid #00f0ff;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.band-tag:hover {
+  background: rgba(0, 240, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.concert-price {
+  color: #ffff00;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+.status-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.available {
+  background: rgba(0, 255, 0, 0.2);
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.coming-soon {
+  background: rgba(255, 165, 0, 0.2);
+  color: #ffa500;
+  border: 1px solid #ffa500;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
+}
+
+.sold-out {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+  border: 1px solid #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+.ticket-form form {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ticket-form input,
+.ticket-form select {
+  padding: 0.75rem;
+  border: 2px solid #00f0ff;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  background: rgba(255, 255, 255, 0.1);
+  color: #b6b6b6;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ticket-form input:focus,
+.ticket-form select:focus {
+  outline: none;
+  border-color: #ff00ff;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.countdown {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  border-radius: 1rem;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 1.5rem auto;
+}
+
+.countdown-item {
+  background: linear-gradient(45deg, #00f0ff, #ff00ff);
+  padding: 1.5rem;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: brightness(0.8);
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+  filter: brightness(1);
+}
+
+.testimonials {
+  background: rgba(20, 20, 20, 0.9);
+  text-align: center;
+}
+
+.testimonial-carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial {
+  display: none;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  font-family: "Roboto", sans-serif;
+  color: #e0e0e0;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.testimonial.active {
+  display: block;
+  animation: slideIn 0.8s ease;
+}
+
+.pricing table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Roboto", sans-serif;
+}
+
+.pricing th,
+.pricing td {
+  border: 2px solid #00f0ff;
+  padding: 1rem;
+  text-align: left;
+  color: #e0e0e0;
+}
+
+.pricing th {
+  background: rgba(0, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.performers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.performer-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.performer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.performer-card h3 {
+  color: #00f0ff;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.map iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.newsletter form {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.stats-grid div {
+  color: #00f0ff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.footer {
+  background: rgba(0, 0, 0, 0.8);
+  color: #e0e0e0;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.footer a {
+  color: #00f0ff;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: rgba(20, 20, 20, 0.9);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 500px;
+  text-align: center;
+  animation: slideUp 0.5s ease;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, #00f0ff, #ff00ff);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+      0 0 20px rgba(0, 255, 255, 0.3);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.8),
+      0 0 30px rgba(0, 255, 255, 0.5);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.promo {
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Section styling */
+.promo {
+  background-color: #141313;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(70, 10, 10, 0.1);
+  max-width: 1200px;
+  margin: 40px auto; /* Biar center di halaman */
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 30px rgba(7, 129, 129, 0.5);
+}
+
+.promo h2 {
+  text-align: center;
+  color: #00f0ff;
+  margin-bottom: 10px;
+}
+
+.promo p {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  margin-bottom: 10px;
+  border-collapse: collapse;
+  margin-left: 1px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #141414e7;
+  color: #00bff9d8;
+  width: 40%;
+  border-radius: 6px 0 0 6px;
+  text-align: center;
+  font-size: 30px;
+
+  /* Font gradient */
+  background: linear-gradient(135deg, #00d9ff, #cc01ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* fallback untuk browser yang tidak support */
+  filter: drop-shadow(0 0 5px #0066ff);
+}
+
+td input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #00ccff;
+  border-radius: 4px;
+  font-size: 14px;
+  filter: drop-shadow(0 0 5px #00d9ff);
+}
+
+td input[type="text"]:focus {
+  outline: none; /* Hilangkan garis biru default */
+  border-color: #00ccff;
+  box-shadow: 0 0 12px #00ccff;
+}
+
+/* Button styling */
+button {
+  padding: 17px 70px;
+  background: linear-gradient(
+    135deg,
+    #00d9ff,
+    #cc01ff
+  ); /* Gradien ungu ke pink */
+  color: white;
+  font-weight: bold;
+  border: none;
+  font-size: 20px;
+  border-radius: 2100px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(3, 234, 255, 0.638); /* sedikit glow */
+}
+
+button:hover {
+  background: linear-gradient(
+    135deg,
+    #00d5ff,
+    #d400ff
+  ); /* versi lebih gelap saat hover */
+  transform: scale(1.05); /* efek membesar sedikit */
+}
+
+button:hover {
+  background-color: #0d1f0e;
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    display: none;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1.5rem;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+  }
+
+  .navbar.active ul {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .gallery,
+  .performers-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ticket-form form {
+    grid-template-columns: 1fr;
+  }
+
+  .map iframe {
+    height: 300px;
+  }
+
+  .cta-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* animation tiket purchase */
+@keyframes ticketFly {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2) translateY(-50px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.5) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.ticket-fly {
+  animation: ticketFly 1s forwards;
+}
