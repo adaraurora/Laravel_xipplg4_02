@@ -15,4 +15,10 @@ class Student extends Model
         'jenis_kelamin',
         'nisn',
     ];
+
+    public function grades()
+    {
+        return $this->hasMany(\App\Models\Grade::class);
+    }
 }
+

@@ -2,31 +2,83 @@
 @section('title', 'Tambah Siswa')
 
 @section('content')
-<div class="container">
-  <h1>Tambah Data Siswa</h1>
-  <form action="{{ route('admin.students.store') }}" method="POST">
-    @csrf
-    <div class="mb-3">
-      <label>NIS</label>
-      <input type="text" name="nis" class="form-control" required>
+
+{{-- (Request 2) Bungkus form dengan card --}}
+<div class="card">
+    <div class="card-body">
+        
+        <form action="{{ route('admin.students.store') }}" method="POST">
+            @csrf
+            
+            {{-- (Request 3) Struktur form BS5 modern --}}
+            <div class="mb-3">
+                <label for="nis" class="form-label">NIS</label>
+                <input type="text" name="nis" id="nis" class="form-control" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                {{-- (Request 4) Gunakan .form-select untuk dropdown --}}
+                <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="L">Laki-laki</option>
+                    <option value="P">Perempuan</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="nisn" class="form-label">NISN</label>
+                <input type="text" name="nisn" id="nisn" class="form-control" required>
+            </div>
+            
+            {{-- (Request 5 & 6) Ganti tombol jadi pink dan tambahkan 'Kembali' --}}
+            <button type="submit" class="btn btn-primary me-2">Simpan</button>
+            <a href="{{ route('admin.students.index') }}" class="btn btn-secondary">Kembali</a>
+            
+        </form>
     </div>
-    <div class="mb-3">
-      <label>Nama Lengkap</label>
-      <input type="text" name="nama_lengkap" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label>Jenis Kelamin</label>
-      <select name="jenis_kelamin" class="form-control" required>
-        <option value="">-- Pilih --</option>
-        <option value="L">Laki-laki</option>
-        <option value="P">Perempuan</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label>NISN</label>
-      <input type="text" name="nisn" class="form-control" required>
-    </div>
-    <button type="submit" class="btn btn-success">Simpan</button>
-  </form>
 </div>
+
 @endsection
+
+{{-- (Request 7) Push style untuk form dan tombol 'Kembali' --}}
+@push('scripts')
+<style>
+    .form-label {
+        font-weight: 500;
+        color: #374151;
+    }
+
+    .form-control,
+    .form-select {
+        border-radius: 10px; /* Sudut tumpul */
+        background-color: #F9FAFB; /* Latar abu-abu soft */
+        border: 1px solid #EBF2F9;
+        padding: 10px 15px;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        background-color: #fff;
+        border-color: #EC4899; /* Border pink saat di-klik */
+        box-shadow: 0 0 0 3px #FCE7F3; /* Glow pink soft */
+    }
+
+    /* Style tombol 'Kembali' */
+    .btn-secondary {
+        background-color: #F4F7FC;
+        border: 1px solid #EBF2F9;
+        color: #333;
+    }
+    .btn-secondary:hover {
+        background-color: #EBF2F9;
+        border-color: #EBF2F9;
+        color: #333;
+    }
+</style>
+@endpush
